@@ -2,7 +2,6 @@ package com.dealership.report;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -16,8 +15,9 @@ public class DealershipReportBuilder {
 	public List<Automobile> sortAutomobiles(String fieldToOrderBy,
 			SortOrder sortOrder, Set<Automobile> automobiles) {
 		Method method = findMethod(fieldToOrderBy, automobiles.toArray()[0]);
-		Object[] array = sort(automobiles.toArray(), method);
+		Object[] array = sort(automobiles.toArray(), method, sortOrder);
 		List<Automobile> automobiles2 = new ArrayList<Automobile>();
+
 		for (int i = 0; i < array.length; i++) {
 			automobiles2.add((Automobile) array[i]);
 		}
@@ -47,7 +47,8 @@ public class DealershipReportBuilder {
 		return builder.toString();
 	}
 
-	private Object[] sort(Object[] automobiles, Method method) {
+	private Object[] sort(Object[] automobiles, Method method,
+			SortOrder sortOrder) {
 		boolean sortedItem = false;
 		for (int i = 0; i < automobiles.length - 1; i++) {
 
@@ -56,16 +57,29 @@ public class DealershipReportBuilder {
 			Comparable<Object> firstComparable = getVal(method, first);
 			Comparable<Object> secondComparable = getVal(method, second);
 
-			if (firstComparable.compareTo(secondComparable) > 0) {
-				automobiles[i] = second;
-				automobiles[i + 1] = first;
-				sortedItem = true;
+			if (sortOrder == SortOrder.ASCENDING) {
+				if (firstComparable.compareTo(secondComparable) > 0) {
+					sortedItem = updateArray(automobiles, i, first, second);
+				}
+			} else {
+				if (firstComparable.compareTo(secondComparable) < 0) {
+					sortedItem = updateArray(automobiles, i, first, second);
+				}
 			}
 		}
 		if (sortedItem) {
-			sort(automobiles, method);
+			sort(automobiles, method, sortOrder);
 		}
 		return automobiles;
+	}
+
+	private boolean updateArray(Object[] automobiles, int i, Automobile first,
+			Automobile second) {
+		boolean sortedItem;
+		automobiles[i] = second;
+		automobiles[i + 1] = first;
+		sortedItem = true;
+		return sortedItem;
 	}
 
 	@SuppressWarnings("unchecked")
