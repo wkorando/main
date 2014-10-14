@@ -7,8 +7,9 @@ import com.dealership.model.Automobile;
 
 /**
  * DAO interface for interacting with the datastore.
+ * 
  * @author Billy
- *
+ * 
  */
 public interface DealershipDAO {
 	Set<Automobile> search(SearchParameter... searchParameters);
