@@ -3,6 +3,14 @@ package com.dealership.model.loaders;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
+import com.dealership.model.Automobile;
+
+/**
+ * Factory class used to transform objects in {@link Automobile}s.
+ * 
+ * @author Billy
+ * 
+ */
 public class AutomobileLoaderFactory {
 	private Logger LOG = Logger.getLogger(AutomobileLoaderFactory.class);
 

@@ -20,6 +20,13 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.query.SqlPredicate;
 
+/**
+ * Implementation of {@link DealershipDAO} for interacting with a Hazelcast
+ * database.
+ * 
+ * @author Billy
+ * 
+ */
 public class DealershipDAOHazelImpl implements DealershipDAO {
 	private Logger LOG = Logger.getLogger(DealershipDAOHazelImpl.class);
 

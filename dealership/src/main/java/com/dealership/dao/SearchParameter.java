@@ -1,5 +1,11 @@
 package com.dealership.dao;
 
+/**
+ * Class used o build search queriesin an objecty manner.
+ * 
+ * @author Billy
+ * 
+ */
 public class SearchParameter {
 	public enum Operator {
 		AND("AND"), //

@@ -9,6 +9,12 @@ import org.apache.log4j.Logger;
 
 import com.dealership.model.Automobile;
 
+/**
+ * Class used to sort search returns by the passed in field.
+ * 
+ * @author Billy
+ * 
+ */
 public class DealershipReportBuilder {
 	private static final Logger LOG = Logger.getLogger(DealershipReportBuilder.class);
 	private static DealershipReportBuilder dealershipReportBuilder;

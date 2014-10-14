@@ -2,7 +2,6 @@ package com.dealership;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -16,6 +15,12 @@ import com.dealership.report.DealershipReportBuilder;
 import com.dealership.report.SortOrder;
 import com.dealership.search.SearchAutomobiles;
 
+/**
+ * Main businessy class for handling dealership operations.
+ * 
+ * @author Billy
+ * 
+ */
 public class DealershipMain {
 	private DealershipDAO dao = new DealershipDAOHazelImpl();
 
@@ -56,8 +61,8 @@ public class DealershipMain {
 			dao.update(automobile);
 		}
 	}
-	
-	public Automobile searchById(Long id, List<Automobile> automobiles){
+
+	public Automobile searchById(Long id, List<Automobile> automobiles) {
 		return SearchAutomobiles.searchAutomobileList(id, automobiles);
 	}
 }
