@@ -33,7 +33,7 @@
 		"truckBedSize" : "24.1"
 	},
 	{
-		"id" : "4",
+		"id" : "5",
 		"make" : "Honda",
 		"model" : "Accord",
 		"price" : "18000.00",
@@ -43,7 +43,7 @@
 		"horsePower" : "123"
 	},
 	{
-		"id" : "5",
+		"id" : "6",
 		"make" : "BMW",
 		"model" : "3 Series",
 		"price" : "26000.00",
@@ -53,7 +53,7 @@
 		"horsePower" : "240"
 	},
 	{
-		"id" : "6",
+		"id" : "7",
 		"make" : "Nissan",
 		"model" : "Ultima",
 		"price" : "17500.00",
@@ -63,7 +63,7 @@
 		"horsePower" : "140"
 	},
 	{
-		"id" : "7",
+		"id" : "8",
 		"make" : "Kia",
 		"model" : "Optima",
 		"price" : "16000.00",
@@ -73,7 +73,7 @@
 		"horsePower" : "97"
 	},
 	{
-		"id" : "8",
+		"id" : "9",
 		"make" : "Ford",
 		"model" : "Windstar",
 		"price" : "4000.00",
@@ -82,7 +82,7 @@
 		"passangerCapacity" : "7"
 	},
 	{
-		"id" : "9",
+		"id" : "10",
 		"make" : "Kawasaki",
 		"model" : "Ninja",
 		"price" : "7500.00",
@@ -92,7 +92,7 @@
 		"hasSideCar" : "false"
 	},
 	{
-		"id" : "10",
+		"id" : "11",
 		"make" : "Harley-Davidson",
 		"model" : "Forty-Eight",
 		"price" : "10000.00",
@@ -102,7 +102,7 @@
 		"hasSideCar" : "true"
 	},
 	{
-		"id" : "11",
+		"id" : "12",
 		"make" : "Harley-Davidson",
 		"model" : "1200 Custom",
 		"price" : "10500.00",

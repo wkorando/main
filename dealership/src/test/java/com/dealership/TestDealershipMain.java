@@ -100,4 +100,17 @@ public class TestDealershipMain {
 		Assert.assertEquals(BigDecimal.valueOf(10500), automobiles.get(1).getPrice());
 		Assert.assertEquals("1200 Custom", automobiles.get(1).getModel());
 	}
+	
+	@Test
+	public void testSearchById(){
+		List<Automobile> automobiles = main.runReport("Id", SortOrder.ASCENDING, new SearchParameter("id", "0", Operator.AND, ValueOperator.GREATER_THAN_OR_EQUAL_TO));
+		
+		Assert.assertNull(main.searchById(Long.valueOf(0), automobiles));
+		Assert.assertNotNull(main.searchById(Long.valueOf(1), automobiles));
+		Assert.assertNull(main.searchById(Long.valueOf(4), automobiles));
+		Assert.assertNotNull(main.searchById(Long.valueOf(5), automobiles));
+		Assert.assertNotNull(main.searchById(Long.valueOf(6), automobiles));
+		Assert.assertNotNull(main.searchById(Long.valueOf(12), automobiles));
+		Assert.assertNull(main.searchById(Long.valueOf(14), automobiles));
+	}
 }

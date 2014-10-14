@@ -14,6 +14,7 @@ import com.dealership.dao.impl.DealershipDAOHazelImpl;
 import com.dealership.model.Automobile;
 import com.dealership.report.DealershipReportBuilder;
 import com.dealership.report.SortOrder;
+import com.dealership.search.SearchAutomobiles;
 
 public class DealershipMain {
 	private DealershipDAO dao = new DealershipDAOHazelImpl();
@@ -54,5 +55,9 @@ public class DealershipMain {
 			automobile.setPrice(salePrice);
 			dao.update(automobile);
 		}
+	}
+	
+	public Automobile searchById(Long id, List<Automobile> automobiles){
+		return SearchAutomobiles.searchAutomobileList(id, automobiles);
 	}
 }
