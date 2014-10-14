@@ -1,5 +1,6 @@
 package com.dealership.dao;
 
+import java.io.File;
 import java.util.Set;
 
 import com.dealership.model.Automobile;
@@ -14,4 +15,6 @@ public interface DealershipDAO {
 	void delete(Automobile automobile);
 
 	Automobile lookupById(long id);
+
+	void loadAutomobilesFromFile(File file);
 }

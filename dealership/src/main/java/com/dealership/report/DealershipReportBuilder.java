@@ -2,18 +2,25 @@ package com.dealership.report;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 
 import com.dealership.model.Automobile;
 
 public class DealershipReportBuilder {
-	private Logger LOG = Logger.getLogger(DealershipReportBuilder.class);
+	private static final Logger LOG = Logger.getLogger(DealershipReportBuilder.class);
+	private static DealershipReportBuilder dealershipReportBuilder;
 
-	public List<Automobile> sortAutomobiles(String fieldToOrderBy,
-			SortOrder sortOrder, Set<Automobile> automobiles) {
+	public static DealershipReportBuilder getInstance() {
+		if (dealershipReportBuilder == null) {
+			dealershipReportBuilder = new DealershipReportBuilder();
+		}
+		return dealershipReportBuilder;
+	}
+
+	public List<Automobile> sortAutomobiles(String fieldToOrderBy, SortOrder sortOrder, Collection<Automobile> automobiles) {
 		Method method = findMethod(fieldToOrderBy, automobiles.toArray()[0]);
 		Object[] array = sort(automobiles.toArray(), method, sortOrder);
 		List<Automobile> automobiles2 = new ArrayList<Automobile>();
@@ -30,11 +37,8 @@ public class DealershipReportBuilder {
 		try {
 			method = object.getClass().getMethod(methodName, new Class[0]);
 		} catch (NoSuchMethodException e) {
-			LOG.error("An error occurred while trying to find method: "
-					+ methodName, e);
-			throw new RuntimeException(
-					"An error occurred while trying to find method: "
-							+ methodName, e);
+			LOG.error("An error occurred while trying to find method: " + methodName, e);
+			throw new RuntimeException("An error occurred while trying to find method: " + methodName, e);
 		}
 
 		return method;
@@ -47,8 +51,7 @@ public class DealershipReportBuilder {
 		return builder.toString();
 	}
 
-	private Object[] sort(Object[] automobiles, Method method,
-			SortOrder sortOrder) {
+	private Object[] sort(Object[] automobiles, Method method, SortOrder sortOrder) {
 		boolean sortedItem = false;
 		for (int i = 0; i < automobiles.length - 1; i++) {
 
@@ -73,8 +76,7 @@ public class DealershipReportBuilder {
 		return automobiles;
 	}
 
-	private boolean updateArray(Object[] automobiles, int i, Automobile first,
-			Automobile second) {
+	private boolean updateArray(Object[] automobiles, int i, Automobile first, Automobile second) {
 		boolean sortedItem;
 		automobiles[i] = second;
 		automobiles[i + 1] = first;
@@ -86,15 +88,11 @@ public class DealershipReportBuilder {
 	private Comparable<Object> getVal(Method method, Automobile first) {
 		Comparable<Object> firstComparable = null;
 		try {
-			firstComparable = (Comparable<Object>) method.invoke(first,
-					new Object[0]);
+			firstComparable = (Comparable<Object>) method.invoke(first, new Object[0]);
 
 		} catch (ReflectiveOperationException e) {
-			LOG.error("An error occurred while attempting to invoke method: "
-					+ method.getName(), e);
-			throw new RuntimeException(
-					"An error occurred while attempting to invoke method: "
-							+ method.getName(), e);
+			LOG.error("An error occurred while attempting to invoke method: " + method.getName(), e);
+			throw new RuntimeException("An error occurred while attempting to invoke method: " + method.getName(), e);
 		}
 		return firstComparable;
 	}

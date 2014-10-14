@@ -4,15 +4,17 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public abstract class Automobile implements Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8298004764114879064L;
+	private static final long serialVersionUID = -7371645259490400677L;
 	private long id;
 	private String make;
 	private String model;
 	private int year;
 	private BigDecimal price;
+	private int numberInStock;
 
 	@Override
 	public int hashCode() {
@@ -21,6 +23,7 @@ public abstract class Automobile implements Serializable {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((make == null) ? 0 : make.hashCode());
 		result = prime * result + ((model == null) ? 0 : model.hashCode());
+		result = prime * result + numberInStock;
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + year;
 		return result;
@@ -53,6 +56,9 @@ public abstract class Automobile implements Serializable {
 				return false;
 			}
 		} else if (!model.equals(other.model)) {
+			return false;
+		}
+		if (numberInStock != other.numberInStock) {
 			return false;
 		}
 		if (price == null) {
@@ -106,5 +112,13 @@ public abstract class Automobile implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public int getNumberInStock() {
+		return numberInStock;
+	}
+
+	public void setNumberInStock(int numberInStock) {
+		this.numberInStock = numberInStock;
 	}
 }

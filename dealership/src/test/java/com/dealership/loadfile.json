@@ -5,6 +5,7 @@
 		"model" : "F-150",
 		"price" : "25000.00",
 		"year" : "2014",
+		"numberInStock" : "4",
 		"haulingCapacity" : "2000",
 		"towingCapacity" : "10000",
 		"truckBedSize" : "25.3"
@@ -15,6 +16,7 @@
 		"model" : "Silverodo",
 		"price" : "22500.00",
 		"year" : "2014",
+		"numberInStock" : "2",
 		"haulingCapacity" : "1500",
 		"towingCapacity" : "8000",
 		"truckBedSize" : "28.6"
@@ -25,6 +27,7 @@
 		"model" : "Tundra",
 		"price" : "26000.00",
 		"year" : "2014",
+		"numberInStock" : "3",
 		"haulingCapacity" : "2250",
 		"towingCapacity" : "10000",
 		"truckBedSize" : "24.1"
@@ -35,6 +38,7 @@
 		"model" : "Accord",
 		"price" : "18000.00",
 		"year" : "2014",
+		"numberInStock" : "6",
 		"mpg" : "35.6",
 		"horsePower" : "123"
 	},
@@ -43,6 +47,7 @@
 		"make" : "BMW",
 		"model" : "3 Series",
 		"price" : "26000.00",
+		"numberInStock" : "2",
 		"year" : "2014",
 		"mpg" : "31.6",
 		"horsePower" : "240"
@@ -53,6 +58,7 @@
 		"model" : "Ultima",
 		"price" : "17500.00",
 		"year" : "2014",
+		"numberInStock" : "1",
 		"mpg" : "29.7",
 		"horsePower" : "140"
 	},
@@ -61,6 +67,7 @@
 		"make" : "Kia",
 		"model" : "Optima",
 		"price" : "16000.00",
+		"numberInStock" : "3",
 		"year" : "2014",
 		"mpg" : "38.2",
 		"horsePower" : "97"
@@ -71,6 +78,7 @@
 		"model" : "Windstar",
 		"price" : "4000.00",
 		"year" : "1998",
+		"numberInStock" : "1",
 		"passangerCapacity" : "7"
 	},
 	{
@@ -79,6 +87,7 @@
 		"model" : "Ninja",
 		"price" : "7500.00",
 		"year" : "2014",
+		"numberInStock" : "2",
 		"engineSize" : "90",
 		"hasSideCar" : "false"
 	},
@@ -88,6 +97,7 @@
 		"model" : "Forty-Eight",
 		"price" : "10000.00",
 		"year" : "2014",
+		"numberInStock" : "1",
 		"engineSize" : "115",
 		"hasSideCar" : "true"
 	},
@@ -97,6 +107,7 @@
 		"model" : "1200 Custom",
 		"price" : "10500.00",
 		"year" : "2014",
+		"numberInStock" : "1",
 		"engineSize" : "130",
 		"hasSideCar" : "false"
 	}

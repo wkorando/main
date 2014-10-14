@@ -16,6 +16,7 @@ public final class JSONAutomobileLoaderUtils {
 		automobile.setModel((String) object.get("model"));
 		automobile.setYear(Integer.valueOf((String) object.get("year")));
 		automobile.setPrice(new BigDecimal(Double.valueOf((String) object.get("price"))));
+		automobile.setNumberInStock(Integer.valueOf((String) object.get("numberInStock")));
 		return automobile;
 	}
 

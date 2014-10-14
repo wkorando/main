@@ -16,15 +16,15 @@ public class TestDealershipReportBuilder {
 	@Test
 	public void testSortAutomobilesByPrice() {
 		Truck truck1 = new Truck();
-		truck1.setPrice(new BigDecimal(100));
+		truck1.setPrice(BigDecimal.valueOf(100));
 		Truck truck2 = new Truck();
-		truck2.setPrice(new BigDecimal(10));
+		truck2.setPrice(BigDecimal.valueOf(10));
 		Truck truck3 = new Truck();
-		truck3.setPrice(new BigDecimal(700));
+		truck3.setPrice(BigDecimal.valueOf(700));
 		Truck truck4 = new Truck();
-		truck4.setPrice(new BigDecimal(600));
+		truck4.setPrice(BigDecimal.valueOf(600));
 		Truck truck5 = new Truck();
-		truck5.setPrice(new BigDecimal(1));
+		truck5.setPrice(BigDecimal.valueOf(1));
 		Set<Automobile> automobiles = new HashSet<Automobile>();
 		truck1.equals(truck5);
 		automobiles.add(truck1);
@@ -34,24 +34,23 @@ public class TestDealershipReportBuilder {
 		automobiles.add(truck5);
 
 		DealershipReportBuilder reportBuilder = new DealershipReportBuilder();
-		for (Automobile automobile : reportBuilder.sortAutomobiles("Price",
-				SortOrder.ASCENDING, automobiles)) {
+		for (Automobile automobile : reportBuilder.sortAutomobiles("Price", SortOrder.ASCENDING, automobiles)) {
 			LOG.debug(automobile.getPrice());
 		}
 	}
-	
+
 	@Test
 	public void testSortAutomobilesByPriceDescending() {
 		Truck truck1 = new Truck();
-		truck1.setPrice(new BigDecimal(100));
+		truck1.setPrice(BigDecimal.valueOf(100));
 		Truck truck2 = new Truck();
-		truck2.setPrice(new BigDecimal(10));
+		truck2.setPrice(BigDecimal.valueOf(10));
 		Truck truck3 = new Truck();
-		truck3.setPrice(new BigDecimal(700));
+		truck3.setPrice(BigDecimal.valueOf(700));
 		Truck truck4 = new Truck();
-		truck4.setPrice(new BigDecimal(600));
+		truck4.setPrice(BigDecimal.valueOf(600));
 		Truck truck5 = new Truck();
-		truck5.setPrice(new BigDecimal(1));
+		truck5.setPrice(BigDecimal.valueOf(1));
 		Set<Automobile> automobiles = new HashSet<Automobile>();
 		truck1.equals(truck5);
 		automobiles.add(truck1);
@@ -61,8 +60,7 @@ public class TestDealershipReportBuilder {
 		automobiles.add(truck5);
 
 		DealershipReportBuilder reportBuilder = new DealershipReportBuilder();
-		for (Automobile automobile : reportBuilder.sortAutomobiles("Price",
-				SortOrder.DESCENDING, automobiles)) {
+		for (Automobile automobile : reportBuilder.sortAutomobiles("Price", SortOrder.DESCENDING, automobiles)) {
 			LOG.debug(automobile.getPrice());
 		}
 	}
@@ -88,9 +86,8 @@ public class TestDealershipReportBuilder {
 		automobiles.add(truck5);
 
 		DealershipReportBuilder reportBuilder = new DealershipReportBuilder();
-		for (Automobile automobile : reportBuilder.sortAutomobiles("TowingCapacity",
-				SortOrder.ASCENDING, automobiles)) {
-			LOG.debug(((Truck)automobile).getTowingCapacity());
+		for (Automobile automobile : reportBuilder.sortAutomobiles("TowingCapacity", SortOrder.ASCENDING, automobiles)) {
+			LOG.debug(((Truck) automobile).getTowingCapacity());
 		}
 	}
 }
