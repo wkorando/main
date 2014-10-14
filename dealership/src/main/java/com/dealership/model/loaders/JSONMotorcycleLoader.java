@@ -11,7 +11,7 @@ public class JSONMotorcycleLoader implements AutomobileLoader {
 		JSONObject jsonObject = (JSONObject) object;
 		Motorcycle motorcycle = (Motorcycle) JSONAutomobileLoaderUtils.loadAutomobile(new Motorcycle(), (JSONObject) jsonObject);
 		motorcycle.setEngineSize(Integer.valueOf((String) jsonObject.get("engineSize")));
-		motorcycle.setHasSideCar(Boolean.valueOf((String) jsonObject.get("hasSidecar")));
+		motorcycle.setHasSideCar(Boolean.valueOf((String) jsonObject.get("hasSideCar")));
 		return motorcycle;
 	}
 

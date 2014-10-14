@@ -3,6 +3,7 @@ package com.dealership;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import com.dealership.dao.DealershipDAO;
@@ -32,9 +33,8 @@ public class DealershipMain {
 		dao.loadAutomobilesFromFile(file);
 	}
 
-	public Collection<Automobile> runReport(String fieldToOrderBy, SortOrder sortOrder, SearchParameter... searchParameters) {
+	public List<Automobile> runReport(String fieldToOrderBy, SortOrder sortOrder, SearchParameter... searchParameters) {
 		Set<Automobile> automobiles = dao.search(searchParameters);
-
 		return DealershipReportBuilder.getInstance().sortAutomobiles(fieldToOrderBy, sortOrder, automobiles);
 	}
 

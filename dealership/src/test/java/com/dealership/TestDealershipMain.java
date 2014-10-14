@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 
 import junit.framework.Assert;
@@ -16,8 +17,10 @@ import com.dealership.dao.SearchParameter;
 import com.dealership.dao.SearchParameter.Operator;
 import com.dealership.dao.SearchParameter.ValueOperator;
 import com.dealership.model.Automobile;
+import com.dealership.model.Motorcycle;
 import com.dealership.model.Truck;
 import com.dealership.model.Van;
+import com.dealership.report.SortOrder;
 
 public class TestDealershipMain {
 	private DealershipMain main = new DealershipMain();
@@ -59,7 +62,7 @@ public class TestDealershipMain {
 		Assert.assertTrue(checkedF150);
 	}
 
-	@Test(dependsOnMethods={"testTotalValueOfStock"})
+	@Test(dependsOnMethods = { "testTotalValueOfStock" })
 	public void testRunSale() {
 		Set<Automobile> automobiles = main.runCustomSearch(new SearchParameter("make", "Harley-Davidson", Operator.AND, ValueOperator.EQUALS));
 		main.runSale(BigDecimal.valueOf(.1), automobiles);
@@ -83,5 +86,18 @@ public class TestDealershipMain {
 	public void testTotalValueOfStock() {
 		BigDecimal totalValueOfStock = main.totalValueOfStock();
 		Assert.assertEquals(BigDecimal.valueOf(488000), totalValueOfStock);
+	}
+
+	@Test
+	public void testRunReport() {
+		List<Automobile> automobiles = main.runReport("Price", SortOrder.DESCENDING, new SearchParameter("make", "Ford", Operator.OR, ValueOperator.EQUALS),
+				new SearchParameter("make", "Harley-Davidson", Operator.OR, ValueOperator.EQUALS));
+
+		Assert.assertEquals(4, automobiles.size());
+		Assert.assertTrue(((Motorcycle) automobiles.get(2)).isHasSideCar());
+		Assert.assertEquals(7, ((Van) automobiles.get(3)).getPassangerCapacity());
+		Assert.assertEquals(BigDecimal.valueOf(25000), automobiles.get(0).getPrice());
+		Assert.assertEquals(BigDecimal.valueOf(10500), automobiles.get(1).getPrice());
+		Assert.assertEquals("1200 Custom", automobiles.get(1).getModel());
 	}
 }
